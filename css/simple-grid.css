@@ -3,14 +3,22 @@
 /* UNIVERSAL */
 
 html,
-body {
+/* body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   left: 0;
   top: 0;
-  font-size: 100%;
+  font-size: 20px;
+  font-family: 'Arial';
+} */
+body {
+  font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ROOT FONT STYLES */
@@ -24,9 +32,9 @@ img {
 
 
 * {
-  font-family: 'Lato', Helvetica, sans-serif;
+  /* font-family: "Helvetica", sans-serif; */
   color: #333447;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .auto-resizable-iframe {
@@ -56,6 +64,13 @@ img {
   margin: 20px 0;
 }
 
+hr {
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid #ddd;
+  margin: 0;
+}
+
 h1 {
   font-size: 3.0rem;
 }
@@ -81,9 +96,9 @@ h6 {
 }
 
 p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 200;
-  line-height: 1.8;
+  line-height: 1.2;
 }
 
 .font-light {
@@ -216,7 +231,7 @@ p {
 
   /* 540px */
   .container {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -292,9 +307,9 @@ p {
 }
 
 .code {
-  /* background-color: lightgray; */
-  font-family: 'Courier New', Courier, monospace;
-  font-size: small;
+  background-color: lightgray;
+  font-family: 'Arial', Courier New, Courier, monospace;
+  font-size: 20px;
   overflow-wrap: normal;
 }
 
@@ -519,4 +534,15 @@ input:not(:checked)+label+.di {
 .abs-profiles a {
   display: inline-block;
   margin-left: 6px;
+}
+
+section {
+  margin: 32px 0px 32px 0px;
+  text-align: justify;
+  clear: both;
+}
+
+code {
+  display: block;
+  white-space: pre-wrap   
 }

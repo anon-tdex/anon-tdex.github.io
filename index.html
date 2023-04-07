@@ -7,16 +7,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play">
-  <meta property="og:description" content="Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play">
+  <meta property="og:title" content="T-Dex: Dexterity from Touch">
+  <meta property="og:description" content="T-Dex: Dexterity from Touch">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play">
+  <meta property="og:site_name" content="T-Dex: Dexterity from Touch">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play">
+  <meta name="twitter:title" content="T-Dex: Dexterity from Touch">
   <meta name="twitter:description"
-    content="Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play">
+    content="We propose a new non-parametric dexterous manipulation framework with tactile and visual observations.">
   <link rel="stylesheet" href="css/simple-grid.css">
-  <link rel="shortcut icon" href="mfiles/robotic-arm.png">
+  <link rel="shortcut icon" href="mfiles/robot_hand_icon.jpeg">
 
   <title>T-Dex: Dexterity from Touch</title>
 </head>
@@ -25,339 +25,429 @@
   <div class="jumbotron">
     <div class="container">
 
-      <div class="row"> <!-- - TODO --> 
-        <div class="col-12 center">
+      <div class="row">
+        <div class="center col-12">
           <h1>Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play</h1>
         </div>
       </div>
 
-      <!-- Author names -->
-      <div class="row">
-        <div class="col-12 center">
-          <h3> Author Names Omitted for Anonymous Review. Paper-ID [41] </p>
-        </div>       
-      </div>
-      
       <!--Intro video-->
-<!--       <div class="intro-vid">
-        <div class="container">
-          <div class="col-12">
-            <body>
-              Video coming soon!
-            </body>
-          </div>
+    <!-- <div class="container"> -->
+      <!-- <div class="intro-vid">
+        <div class="col-12 center">
+          <body>
+            <iframe width="900" height="506" src="https://www.youtube.com/embed/lzJdVBe4lrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </body>
         </div>
       </div> -->
+    </div>
 
-      <!--Abstract-->
+    <!-- Abstract -->
+    <div class="container"> 
       <div class="row">
-        <div class="col-12">
-          <h2 class="center m-bottom">Abstract</h2>
+        <div class="col-12 justify">
+          <h3 class="center m-bottom">Summary</h2>
           <p>
-            Teaching dexterity to multi-fingered robots has been
-            a longstanding challenge in robotics. Most prominent work in
-            this area focuses on learning controllers or policies that either
-            operate on visual observations or state estimates derived from
-            vision. However, such methods perform poorly on fine-grained
-            manipulation tasks that require reasoning about contact forces or
-            about objects occluded by the hand itself. In this work, we present
-            T-DEX, a new approach for tactile-based dexterity, that operates
+            In this work we present T-Dex, a new approach for tactile-based dexterity, that operates
             in two phases. In the first phase, we collect 2.5 hours of play
-            data, which is used to train self-supervised tactile encoders. This
-            is necessary to bring high-dimensional tactile readings to a lower-
-            dimensional embedding. In the second phase, given a handful of
-            demonstrations for a dexterous task, we learn non-parametric
-            policies that combine the tactile observations with visual ones.
-            Across five challenging dexterous tasks, we show that our tactile-
-            based dexterity models outperform purely vision and torque-
-            based models by an average of 1.7X. Finally, we provide a detailed
-            analysis on factors critical to T-DEX including the importance
-            of play data, architectures, and representation learning. 
+            data, which is used to train self-supervised tactile encoders. 
+            In the second phase, given a handful of demonstrations for a dexterous task,
+            we learn non-parametric policies that combine the tactile observations with visual ones.
+            Across five challenging dexterous tasks, we observe that our <b>tactile-based
+            dexterity models outperform purely vision and torque-based models by an average
+            of 1.7X</b>.
           </p>
         </div>
       </div>
-    </div>
-    
-    <!--Method-->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="center m-bottom">Method</h2>
-        </div>
-        <div class="col-6">
-          <p><a style="color: #00A2FF; font-weight: bold;">T-Dex</a> consists of three phases: collecting a tactile play data, where a teleoperator collects 2.5 hours of demonstrations of
-            aimless tasks such as steering a wheel, moving a joystick or in-hand manipulation, training a tactile encoder on tactile readings of this play data and demonstration-based policy learning
-            using visual and tactile observations.
-          </p>
-        </div>
-
-        <div class="col-6">
-          <img src="./mfiles/tdex_intro.png"/>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <p>
-          We treat each tactile reading as if they are RGB images, where each channel corresponds to
-          different force axes. Train an encoder using self-supervised learning algorithms. And use nearest neighbor matching to retrieve the action.
-        </p>
-      </div>
+      <br>
+      <hr>
     </div>
 
-    <div class="row">
-      <div class="center img">
-        <img src="./mfiles/tdex_algo.png" style="max-width:1000px;width:60%" frameborder="0"
-        allowfullscreen></img>
-      </div>
-    </div>
-      
-    <!-- Play Data Collection Heading -->
-    <div class="container">
+      <!-- Policies -->
+      <div class="container">
         <div class="row">
           <div class="col-12">
-              <h2 class="center m-bottom">Play Data Collection</h2> 
-          </div>
-
-          <div class="col-6">
-              <p> 
-                  Since it is hard to collect fine-grained dexterous demonstrations through teleoperation without the tactile feeling we train a tactile encoder
-                  through large amounts of play data. A teleoperator collects 2.5 hours of play demonstrations by using an Oculus headset and a buil-in Kinova joystick, 
-                  shown in this figure.
-              </p>
-              <!-- <img src="./mfiles/nns/planar-rotation-train-nn.gif"/> -->
-          </div>
-          <div class="col-6">
-              <img src="./mfiles/robot_setup.png"/>
-          </div>
-
-          <div class="col-12">
-            <h3 class="center m-bottom">Example Play Data</h2> 
-          </div>
-          <div class="col-6">
-            <img src="./mfiles/play_data.gif"/>
-            <p class="center">
-              Example play data tasks done</p>
-          </div>
-          <div class="col-6">
-            <img src="./mfiles/play_data_tactile.gif"/>
-            <p class="center">
-              Example play data tactile readings from top four activated tactile pads.
+            <h2 class="center m-bottom">Policies</h2>
+            <p>
+              We evaluate our framework on several dexterous tasks that are difficult to solve with visual information alone.
             </p>
           </div>
-        </div>
-    </div>
 
-    <!-- <br><br> -->
-
-    <!-- Policies -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="center m-bottom">Policies</h2>
-          <p>
-            We use non-parametric imitation learning (Nearest Neighbors) to optimize our robot policies.
-            At each timestep, the closest example to the current observation is searched in the demonstration dataset.
-            Representations for the demonstration buffer and the current state are received from the image encoder
-              and the tactile encoder separately. And then concated with each other.
-            The action associated with that closest example is then executed on the robot.
-          </p>
-        </div>
-
-        <!-- TODO: NN videos here? -->
-
-        <div class="col-12">
-          <h2 class="center m-bottom">Our learned policies on 5 different tasks</h2>
+          <div class="col-6">
+            <h4 class="center">Bowl Unstacking</h4>
+              <video width="490" playsinline muted autoplay loop>
+                <source src="./mfiles/main_task/bowl_picking_compressed_trimmed.mp4" type="video/mp4">
+              </video>
+          </div>
+          <div class="col-6">
+            <h4 class="center">Cup Unstacking</h4>
+              <video width="490" playsinline muted autoplay loop>
+                <source src="./mfiles/main_task/cup_picking_frames_compressed.mp4" type="video/mp4">
+              </video>
+          </div>
         </div>
         
-        <br><br><br>
-
-        <div class="col-4">
-            <img src="./mfiles/main_task/gamepad.gif"/>
-            <h3 class="center">Joystick Movement</h3>
+        <div class="row">
+          <div class="col-4">
+            <h4 class="center">Joystick Movement</h4>
+            <video class="center" width="320" playsinline muted autoplay loop>
+              <source src="./mfiles/main_task/gamepad_frames_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="col-4">
+            <h4 class="center">Bottle Cap Opening</h4>
+            <video class="center" width="320" playsinline muted autoplay loop>
+              <source src="./mfiles/main_task/bottle_opening_frames_compressed.mp4" type="video/mp4">
+            </video>
+          </div> 
+          <div class="col-4">
+            <h4 class="center">Book Opening</h4>
+            <video class="center" width="320" playsinline muted autoplay loop>
+              <source src="./mfiles/main_task/book_opening_frames_compressed.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-        <div class="col-4">
-            <img src="./mfiles/main_task/bottle_opening.gif"/>
-            <h3 class="center">Bottle Cap Opening</h3>
-        </div>
-        <div class="col-4">
-            <img src="./mfiles/main_task/book_opening.gif"/>
-            <h3 class="center">Book Opening</h3>
-        </div>
-
-        <div class="col-4">
-            <img src="./mfiles/main_task/bowl_picking.gif"/>
-            <h3 class="center">Bowl Unstacking</h3>
-        </div>
-        <div class="col-4">
-            <img src="./mfiles/main_task/cup_picking.gif"/>
-            <h3 class="center">Cup Unstacking</h3>
-        </div>
-        <!-- <div class="col-4">
-            <img src="./mfiles/main_task/postit-note-sliding.gif"/>
-            <h3 class="center">Postit Note Sliding</h3>
-        </div> -->
-      </div>
     </div>
-
-    <br><br>
 
     <!-- Generalization Experiments -->
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="center m-bottom">Generalization Experiments</h2>
+          <h3 class="center">Generalization</h3>
           <p>
-            We observed that policies learned was able to generalize on structurally similar but visually different objects 
-            in few of the tasks.
-            <!-- We observed that imitation learning model was able to generalize on structurally and visually different 
-            objects in all the in-hand manipulation tasks. -->
+            We observe that our tactile-based policies are able to generalize on new objects that are 
+            structurally similar but visually different. Our policy also fails in some cases, which is indicated by a red cross. 
+          </p>
+        </div>
+
+        <div class="col-6">
+          <h4 class="center m-bottom">Cup Unstacking</h4>
+          <video class="center" width="460" playsinline muted autoplay loop>
+            <source src="./mfiles/generalization/cup_generalization.m4v" type="video/mp4">
+          </video>
+          <p>
+            Robot rollout for cup unstacking task on unseen cups.
+            With a more detailed run we observe success rates of <b>4/10</b>, <b>5/10</b>, <b>6/10</b>, <b>5/10</b> (from top left to bottom right) for the showcased objects.
+          </p>
+        </div>
+        
+        <div class="col-6">
+          <h4 class="center m-bottom">Bowl Unstacking</h4>
+          <video class="center" width="460" playsinline muted autoplay loop>
+            <source src="./mfiles/generalization/bowl_generalization.m4v" type="video/mp4">
+          </video>
+          <p>
+            Robot rollout for bowl unstacking task on unseen bowls.
+          </p> 
+        </div>
+
+      </div>
+      <hr>
+    </div>
+    
+    <!--Method-->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 justify">
+          <h2 class="center">Method</h2>
+          <p><a style="color: #00A2FF; font-weight: bold;">T-Dex</a> consists of two phases: First phase is to collect a tactile play 
+            dataset, where a 
+            teleoperator collects 2.5 hours of aimless demonstrations. Given this dataset, a tactile encoder is trained using a self-supervised objective.
+            In the second phase a task-specific policy is acquired by leveraging the pre-trained tactile encoder in the first phase. 
+          </p>
+        </div>
+
+        <div class="center">
+          <img src="./mfiles/tdex_algo.png" style="max-width:1000px;width:100%" frameborder="0"
+          allowfullscreen></img>
+        </div>
+
+        <div class="col-12">
+          <h3 class="center m-bottom">Collected Play Data</h3> 
+        </div>
+       
+        <div class="col-6">
+          <img src="./mfiles/play_data.gif"/>
+          <p class="center">
+            Examples of play data collected by a human teleoperator.</p>
+        </div>
+        <div class="col-6">
+          <img src="./mfiles/play_data_tactile.gif"/>
+          <p class="center">
+            Examples of tactile readings from highest activated tactile pads.
           </p>
         </div>
       </div>
-
-      <div class="row">
-        <h3 class="center">Generalization observed with unseen objects in Cup Unstacking task</h3>
-        <div class="c">
-          <input type="radio" name="cup_picking_gen" id="cup-1" checked>
-          <label for="cup-1" style="--hue: 82"></label>
-          <div class="ci" style="--z: 6">
-            <img src="./mfiles/generalization/cup_picking/cup_picking_tdex_gen_2.gif" alt="Trees">
-          </div>
-          
-          <input type="radio" name="cup_picking_gen" id="cup-2">
-          <label for="cup-2" style="--hue: 40"></label>
-          <div class="ci" style="--z: 5">
-            <img src="./mfiles/generalization/cup_picking/cup_picking_tdex_gen_3.gif" alt="Mountains and houses">
-          </div>
-          
-          <input type="radio" name="cup_picking_gen" id="cup-3">
-          <label for="cup-3" style="--hue: 210"></label>
-          <div class="ci" style="--z: 4">
-            <img src="./mfiles/generalization/cup_picking/cup_picking_tdex_gen_1.gif" alt="Sky and mountains">
-          </div>
-
-          <input type="radio" name="cup_picking_gen" id="cup-4">
-          <label for="cup-4" style="--hue: 210"></label>
-          <div class="ci" style="--z: 3">
-            <img src="./mfiles/generalization/cup_picking/cup_picking_tdex_gen_4.gif" alt="Sky and mountains">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h3 class="center">Generalization observed with unseen objects in Bowl Unstacking task</h3>
-        <div class="c">
-          <input type="radio" name="bowl_picking_gen" id="bowl-1" checked>
-          <label for="bowl-1" style="--hue: 82"></label>
-          <div class="ci" style="--z: 6">
-            <img src="./mfiles/generalization/bowl_picking/bowl_picking_tdex_gen_2.gif" alt="Trees">
-          </div>
-          
-          <input type="radio" name="bowl_picking_gen" id="bowl-2">
-          <label for="bowl-2" style="--hue: 40"></label>
-          <div class="ci" style="--z: 5">
-            <img src="./mfiles/generalization/bowl_picking/bowl_picking_tdex_gen_3.gif" alt="Mountains and houses">
-          </div>
-          
-          <input type="radio" name="bowl_picking_gen" id="bowl-3">
-          <label for="bowl-3" style="--hue: 210"></label>
-          <div class="ci" style="--z: 4">
-            <img src="./mfiles/generalization/bowl_picking/bowl_picking_tdex_gen_4.gif" alt="Sky and mountains">
-          </div>
-
-          <input type="radio" name="bowl_picking_gen" id="bowl-4">
-          <label for="bowl-4" style="--hue: 210"></label>
-          <div class="ci" style="--z: 3">
-            <img src="./mfiles/generalization/bowl_picking/bowl_picking_tdex_gen_1.gif" alt="Sky and mountains">
-          </div>
-        </div>
-      </div>
-    
+      <hr>
     </div>
 
-    <br><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="center m-bottom">Baseline comparisons</h2>
+					<p>
+						We chose this approach because of the high dimensional and multi modal nature of the experiment setting and
+						low-data regime that we needed to follow due to the challenge in data collection without any tactile feedback.
+						We have run additional imitation learning baselines that are proven to be better in multi-modal settings with high action dimensions
+						such as <b>Behavior Transformers (BET)</b>, <b>Implicit Behavior Cloning (IBC)</b> and <b>Gaussian Mixture Models on top of BC (BCGMM)</b>. 
+						We observed failures in all of these experiments due to the lack of training dataset. Here we show the policy rollouts for the Cup Unstacking task.
+					</p>
+				</div>
+
+				<div class="col-6 center">
+					<h4 class="center">Gaussian Mixture Models on top of BC (BCGMM)</h4>
+					<video width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bcgmm_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="col-6 center">
+					<h4 class="center">Behavior Transformers (BET)</h4>
+					<video width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bet_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 center">
+					<h4 class="center">Implicit Behavior Cloning (IBC)</h4>
+					<video class="center" width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+			<br>
+			<hr>
+		</div>
 
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="center m-bottom">Baseline comparisons</h2>
+          <h2 class="center m-bottom">Representation comparisons</h2>
           <p>
             We observe that we require both the tactile and image observations combined together to successfully complete our tasks.
             We show the importance of our method decisions by comparing image only and tactile only neighbor matching
             policies to T-Dex.
           </p>
 
-          <div class="col-6">
-            <img src="./mfiles/baseline_comp/tdex_cup.gif"/>
-            <h3 class="center">T-Dex</h3>
+          <div class="col-12 center">
+            <h4 class="center">T-Dex</h4>
             <p class="center">
               <b>Success:</b> It successfully slides the inner cup.
             </p>
+            <video class="center" width="520" playsinline muted autoplay loop>
+              <source src="./mfiles/baseline_comp/tdex_baseline.mp4" type="video/mp4">
+            </video>
           </div>
-          <div class="col-6">
-            <img src="./mfiles/baseline_comp/image_only_cup.gif"/>
-            <h3 class="center">Image Only NN Matching Policy</h3>
-            <p class="center">
-              <b>Failure:</b> It fails since the policy doesn't know how much force should be applied.
-            </p>
-          </div>
-          <div class="col-6">
-            <img src="./mfiles/baseline_comp/tactile_only_cup.gif"/>
-            <h3 class="center">Tactile Only NN Matching Policy</h3>
-            <p class="center">
-              <b>Failure:</b> It fails since the policy doesn't know where the object is.
-            </p>
-          </div>
-
-          <!-- <p>
-            We observed that policies learned was able to generalize on structurally similar but visually different objects 
-            in few of the tasks.
-          </p> -->
+          
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-6 center">
+          <h4 class="center">Image Only NN Matching Policy</h4>
+          <p class="center">
+            <b>Failure:</b> It fails since the policy doesn't know how much force should be applied.
+          </p>
+          <video class="center" width="360" playsinline muted autoplay loop>
+            <source src="./mfiles/baseline_comp/image_baseline.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="col-6 center">
+          <h4 class="center">Tactile Only NN Matching Policy</h4>
+          <p class="center">
+            <b>Failure:</b> It fails since the policy doesn't know where the object is.
+          </p>
+          <video class="center" width="360" playsinline muted autoplay loop>
+            <source src="./mfiles/baseline_comp/tactile_baseline.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <hr>
+      <br>
     </div>
+
+
+<!-- 
+    <div class="container">
+      <h2>Bibtex</h2>
+      <div class="code">
+        <code style="font-size:13px;">
+            @misc{guzey2023dexterity,
+              title={Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play}, 
+              author={Irmak Guzey and Ben Evans and Soumith Chintala and Lerrel Pinto},
+              year={2023},
+              eprint={2303.12076},
+              archivePrefix={arXiv},
+              primaryClass={cs.RO}
+        }
+        </code>
+      </div>
+      <br>
+      <hr>
+    </div> -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="center m-bottom">More Rollouts</h2>
+          <p>
+            We show all the robot rollouts and the robot experiments for each of our tasks.
+          </p>
+          
+          <div class="col-12 center">
+            <h4 class="center">Cup Unstacking</h4>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_0_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_1_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_2_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_3_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_4_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/cup_picking/output_5_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="col-12 center">
+            <h4 class="center">Bowl Unstacking</h4>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_0_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_1_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_2_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_3_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_4_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bowl_picking/output_5_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="col-12 center">
+            <h4 class="center">Book Opening</h4>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_1_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_6_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_2_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_3_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_4_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/book_opening/output_5_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="col-12 center">
+            <h4 class="center">Bottle Cap Opening</h4>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bottle_cap_opening/output_0_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bottle_cap_opening/output_1_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/bottle_cap_opening/output_2_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="col-12 center">
+            <h4 class="center">Joystick Movement</h4>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/gamepad/output_0_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/gamepad/output_1_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-4">
+              <video controls class="center" width="300" playsinline muted autoplay loop>
+                <source src="./mfiles/all_rollouts/gamepad/output_2_comp.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+      <hr>
+    </div>    
+
+    
 
   </div>
 
-
-
   <footer>
   </footer>
-
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      setInterval(planar_rotation_cycle, 10000);
-      setInterval(object_flipping_cycle, 10000);
-      setInterval(can_spinning_cycle, 10000);
-      setInterval(failure_cycle, 10000);
-
-      var planar_rotation_marker = 1;
-      var object_flipping_marker = 1;
-      var can_spinning_marker = 1;
-      var failure_marker = 1;
-
-      function planar_rotation_cycle() {
-        planar_rotation_marker = (planar_rotation_marker % 6) + 1;
-        $('#cr-' + planar_rotation_marker).prop('checked', true);
-      }
-
-      function object_flipping_cycle() {
-        object_flipping_marker = (object_flipping_marker % 9) + 1;
-        $('#dr-' + object_flipping_marker).prop('checked', true);
-      }
-
-      function can_spinning_cycle() {
-        can_spinning_marker = (can_spinning_marker % 9) + 1;
-        $('#er-' + can_spinning_marker).prop('checked', true);
-      }
-
-      function failure_cycle() {
-        failure_marker = (failure_marker % 4) + 1;
-        $('#fr-' + failure_marker).prop('checked', true);
-      }
-    }); -->
-  <!-- </script> -->
 
 </body>
 
