@@ -107,7 +107,75 @@
             </video>
           </div>
         </div>
+        <br>
+        <hr>
     </div>
+
+    <div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h3 class="center m-bottom">Additional Baseline Comparisons for the Author Response</h3>
+					<p>
+            From our experiments we found that our approach is better suited to imitation learning (IL) in the low-data regime (six demonstrations per task)
+            compared to fully parametric approaches. To further emphasize this point, we have run additional IL algorithms such as <b>Behavior Transformers (BeT)</b>,
+            <b>Implicit Behavior Cloning (IBC)</b> and <b>Gaussian Mixture Models on top of BC (BC-GMM)</b> on the cup-unstacking task. We find that none of these report a
+            single success on 10 rollouts as they overfit on the small number of demonstrations. Here we show the success rates of the baselines compared to ours and showcase
+            rollouts for the cup-unstacking task.
+
+					</p>
+				</div>
+
+        <div class="col-12">
+					<h4 class="center m-bottom">Success Rates of the Baselines</h4>
+            <table>
+              <tr>
+                <th>Baseline</th>
+                <th>Success Rate</th>
+              </tr>
+              <tr>
+                <td>T-Dex</td>
+                <td>8/10</td>
+              </tr>
+              <tr>
+                <td>Gaussian Mixture Models on top of BC (BC-GMM)</td>
+                <td>0/10</td>
+              </tr>
+              <tr>
+                <td>Behavior Transformers (BeT)</td>
+                <td>0/10</td>
+              </tr>
+              <tr>
+                <td>Implicit Behavior Cloning (IBC)</td>
+                <td>0/10</td>
+              </tr>
+            </table>
+				</div>
+
+				<div class="col-6 center">
+					<h4 class="center">Gaussian Mixture Models on top of BC (BC-GMM)</h4>
+					<video width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bcgmm_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="col-6 center">
+					<h4 class="center">Behavior Transformers (BeT)</h4>
+					<video width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bet_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 center">
+					<h4 class="center">Implicit Behavior Cloning (IBC)</h4>
+					<video class="center" width="490" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+			<br>
+			<hr>
+		</div>
 
     <!-- Generalization Experiments -->
     <div class="container">
@@ -127,7 +195,8 @@
           </video>
           <p>
             Robot rollout for cup unstacking task on unseen cups.
-            With a more detailed run we observe success rates of <b>4/10</b>, <b>5/10</b>, <b>6/10</b>, <b>5/10</b> (from top left to bottom right) for the showcased objects.
+            As a clarification to the reviewers' concerns we ran each object 10 times following a similar experimental setting and 
+            we observe success rates of <b>4/10</b>, <b>5/10</b>, <b>6/10</b>, <b>5/10</b> (from top left to bottom right) for the showcased objects.
           </p>
         </div>
         
@@ -181,45 +250,6 @@
       <hr>
     </div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="center m-bottom">Baseline comparisons</h2>
-					<p>
-						We chose this approach because of the high dimensional and multi modal nature of the experiment setting and
-						low-data regime that we needed to follow due to the challenge in data collection without any tactile feedback.
-						We have run additional imitation learning baselines that are proven to be better in multi-modal settings with high action dimensions
-						such as <b>Behavior Transformers (BET)</b>, <b>Implicit Behavior Cloning (IBC)</b> and <b>Gaussian Mixture Models on top of BC (BCGMM)</b>. 
-						We observed failures in all of these experiments due to the lack of training dataset. Here we show the policy rollouts for the Cup Unstacking task.
-					</p>
-				</div>
-
-				<div class="col-6 center">
-					<h4 class="center">Gaussian Mixture Models on top of BC (BCGMM)</h4>
-					<video width="490" playsinline muted autoplay loop>
-							<source src="./mfiles/baseline_comp/bcgmm_compressed.mp4" type="video/mp4">
-					</video>
-				</div>
-				<div class="col-6 center">
-					<h4 class="center">Behavior Transformers (BET)</h4>
-					<video width="490" playsinline muted autoplay loop>
-							<source src="./mfiles/baseline_comp/bet_compressed.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-12 center">
-					<h4 class="center">Implicit Behavior Cloning (IBC)</h4>
-					<video class="center" width="490" playsinline muted autoplay loop>
-							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<br>
-			<hr>
-		</div>
-
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -266,26 +296,6 @@
       <hr>
       <br>
     </div>
-
-
-<!-- 
-    <div class="container">
-      <h2>Bibtex</h2>
-      <div class="code">
-        <code style="font-size:13px;">
-            @misc{guzey2023dexterity,
-              title={Dexterity from Touch: Self-Supervised Pre-Training of Tactile Representations with Robotic Play}, 
-              author={Irmak Guzey and Ben Evans and Soumith Chintala and Lerrel Pinto},
-              year={2023},
-              eprint={2303.12076},
-              archivePrefix={arXiv},
-              primaryClass={cs.RO}
-        }
-        </code>
-      </div>
-      <br>
-      <hr>
-    </div> -->
 
     <div class="container">
       <div class="row">
