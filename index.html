@@ -111,14 +111,53 @@
         <hr>
     </div>
 
+    <!-- Generalization Experiments -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="center">Generalization</h3>
+          <p>
+            We observe that our tactile-based policies are able to generalize on new objects that are 
+            structurally similar but visually different.
+            Each object is experimented following a similar experimental setting as with the original object and observed success rates
+            are shown for each showcased object.
+          </p>
+        </div>
+
+        <div class="col-6">
+          <h4 class="center m-bottom">Cup Unstacking</h4>
+          <video class="center" width="460" playsinline muted autoplay loop>
+            <source src="./mfiles/generalization/cup_unstacking_gen_corl.mp4" type="video/mp4">
+          </video>
+          <p>
+            Robot rollout for cup unstacking task on unseen cups.
+          </p>
+        </div>
+        
+        <div class="col-6">
+          <h4 class="center m-bottom">Bowl Unstacking</h4>
+          <video class="center" width="460" playsinline muted autoplay loop>
+            <source src="./mfiles/generalization/bowl_unstacking_gen_corl.mp4" type="video/mp4">
+          </video>
+          <p>
+            Robot rollout for bowl unstacking task on unseen bowls. 
+          </p> 
+        </div>
+
+      </div>
+      <hr>
+    </div>
+
+    <!-- IL Baselines -->
     <div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h3 class="center m-bottom">Additional Baseline Comparisons for the Author Response</h3>
+					<h3 class="center m-bottom">Imitation Learning Baseline Comparisons</h3>
 					<p>
             From our experiments we found that our approach is better suited to imitation learning (IL) in the low-data regime (six demonstrations per task)
             compared to fully parametric approaches. To further emphasize this point, we have run additional IL algorithms such as <b>Behavior Transformers (BeT)</b>,
-            <b>Implicit Behavior Cloning (IBC)</b> and <b>Gaussian Mixture Models on top of BC (BC-GMM)</b> on the cup-unstacking task. We find that none of these report a
+            <b>Implicit Behavior Cloning (IBC)</b> and <b>Gaussian Mixture Models on top of BC (BC-GMM)</b> on the cup-unstacking and bowl-unstacking task.
+            We find that none of these report a
             single success on 10 rollouts as they overfit on the small number of demonstrations. Here we show the success rates of the baselines compared to ours and showcase
             rollouts for the cup-unstacking task.
 
@@ -130,89 +169,104 @@
             <table>
               <tr>
                 <th>Baseline</th>
-                <th>Success Rate</th>
+                <th>Success Rate (Cup Unstacking)</th>
+                <th>Success Rate (Bowl Unstacking)</th>
               </tr>
               <tr>
                 <td>T-Dex</td>
                 <td>8/10</td>
+                <td>7/10</td>
               </tr>
               <tr>
                 <td>Gaussian Mixture Models on top of BC (BC-GMM)</td>
+                <td>0/10</td>
                 <td>0/10</td>
               </tr>
               <tr>
                 <td>Behavior Transformers (BeT)</td>
                 <td>0/10</td>
+                <td>0/10</td>
               </tr>
               <tr>
                 <td>Implicit Behavior Cloning (IBC)</td>
+                <td>0/10</td>
                 <td>0/10</td>
               </tr>
             </table>
 				</div>
 
-				<div class="col-6 center">
-					<h4 class="center">Gaussian Mixture Models on top of BC (BC-GMM)</h4>
-					<video width="490" playsinline muted autoplay loop>
+        <!-- <div class="col-12 center">
+          <h4 class="center">Cup Unstacking</h4>
+        </div> -->
+
+        <!-- <h4 class="center">Cup Unstacking</h4> -->
+
+				<div class="col-4 center">
+					<h5 class="center">BC-GMM</h4>
+					<video width="300" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bcgmm_compressed.mp4" type="video/mp4">
+					</video>
+          <video width="300" playsinline muted autoplay loop>
+            <source src="./mfiles/baseline_comp/bowl_bcgmm_compressed.mov" type="video/mp4">
+        </video>
+				</div>
+				<div class="col-4 center">
+					<h5 class="center">BeT</h4>
+					<video width="300" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/bet_compressed.mp4" type="video/mp4">
+					</video>
+          <video width="300" playsinline muted autoplay loop>
+            <source src="./mfiles/baseline_comp/bowl_bet_compressed.mov" type="video/mp4">
+        </video>
+				</div>
+
+        <div class="col-4 center">
+					<h5 class="center">IBC</h4>
+					<video width="300" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
+					</video>
+          <video width="300" playsinline muted autoplay loop>
+            <source src="./mfiles/baseline_comp/bowl_ibc_compressed.mov" type="video/mp4">
+        </video>
+				</div>
+
+        <!-- <div class="col-12 center">
+          <h4 class="center">Bowl Unstacking</h4>
+        </div> -->
+       
+        <!-- <hr>
+
+				<div class="col-4 center">
+					<video width="300" playsinline muted autoplay loop>
 							<source src="./mfiles/baseline_comp/bcgmm_compressed.mp4" type="video/mp4">
 					</video>
 				</div>
-				<div class="col-6 center">
-					<h4 class="center">Behavior Transformers (BeT)</h4>
-					<video width="490" playsinline muted autoplay loop>
+				<div class="col-4 center">
+					<video width="300" playsinline muted autoplay loop>
 							<source src="./mfiles/baseline_comp/bet_compressed.mp4" type="video/mp4">
 					</video>
 				</div>
+
+        <div class="col-4 center">
+					<video width="300" playsinline muted autoplay loop>
+							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
+					</video>
+				</div> -->
+
+
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-12 center">
 					<h4 class="center">Implicit Behavior Cloning (IBC)</h4>
 					<video class="center" width="490" playsinline muted autoplay loop>
 							<source src="./mfiles/baseline_comp/ibc_compressed.mp4" type="video/mp4">
 					</video>
 				</div>
-			</div>
+			</div> -->
 			<br>
 			<hr>
 		</div>
-
-    <!-- Generalization Experiments -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3 class="center">Generalization</h3>
-          <p>
-            We observe that our tactile-based policies are able to generalize on new objects that are 
-            structurally similar but visually different. Our policy also fails in some cases, which is indicated by a red cross. 
-          </p>
-        </div>
-
-        <div class="col-6">
-          <h4 class="center m-bottom">Cup Unstacking</h4>
-          <video class="center" width="460" playsinline muted autoplay loop>
-            <source src="./mfiles/generalization/cup_generalization.m4v" type="video/mp4">
-          </video>
-          <p>
-            Robot rollout for cup unstacking task on unseen cups.
-            As a clarification to the reviewers' concerns we ran each object 10 times following a similar experimental setting as with the original object and 
-            observed success rates of <b>4/10</b>, <b>5/10</b>, <b>6/10</b>, <b>5/10</b> (from top left to bottom right) for the showcased objects.
-          </p>
-        </div>
-        
-        <div class="col-6">
-          <h4 class="center m-bottom">Bowl Unstacking</h4>
-          <video class="center" width="460" playsinline muted autoplay loop>
-            <source src="./mfiles/generalization/bowl_generalization.m4v" type="video/mp4">
-          </video>
-          <p>
-            Robot rollout for bowl unstacking task on unseen bowls.
-          </p> 
-        </div>
-
-      </div>
-      <hr>
-    </div>
     
     <!--Method-->
     <div class="container">
